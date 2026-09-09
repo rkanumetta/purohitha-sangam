@@ -1,0 +1,164 @@
+@import "tailwindcss";
+@import "@fontsource/outfit/400.css";
+@import "@fontsource/outfit/500.css";
+@import "@fontsource/outfit/600.css";
+@import "@fontsource/noto-sans-telugu/400.css";
+@import "@fontsource/noto-sans-telugu/500.css";
+@import "@fontsource/noto-sans-telugu/600.css";
+@import "@fontsource/noto-serif-telugu/600.css";
+@import "@fontsource/noto-serif-telugu/700.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Noto Serif Telugu", "Noto Sans Telugu", "Outfit", serif;
+  --font-sans: "Noto Sans Telugu", "Outfit", sans-serif;
+  --font-latin: "Outfit", "Noto Sans Telugu", sans-serif;
+
+  --color-ink: #152033;
+  --color-ink-soft: #3d4a5c;
+  --color-paper: #f3efe6;
+  --color-paper-2: #e8e2d4;
+  --color-night: #0f1726;
+  --color-night-2: #162033;
+  --color-night-3: #1c2a42;
+  --color-kumkum: #c45c26;
+  --color-kumkum-deep: #9a3f16;
+  --color-leaf: #2f5d4a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.dark body,
+html.dark body {
+  background: var(--color-night);
+  color: #ece7dc;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-kumkum) 35%, transparent);
+}
+
+.font-latin {
+  font-family: var(--font-latin);
+}
+
+.reveal-in {
+  animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-copy > * {
+  animation: reveal-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-copy > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.hero-copy > *:nth-child(2) {
+  animation-delay: 0.14s;
+}
+
+.hero-copy > *:nth-child(3) {
+  animation-delay: 0.22s;
+}
+
+.hero-copy > *:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.hero-swiper-wrap {
+  overflow: visible;
+}
+
+.hero-swiper {
+  overflow: visible;
+}
+
+.hero-swiper .swiper-slide {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgb(15 23 38 / 0.28);
+}
+
+.hero-swiper .swiper-pagination {
+  bottom: -1.75rem;
+}
+
+.hero-swiper .swiper-pagination-bullet {
+  background: #c9c2b4;
+  opacity: 1;
+}
+
+.gallery-swiper {
+  padding-bottom: 2.75rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.gallery-swiper .swiper-slide {
+  height: auto;
+}
+
+.gallery-swiper .swiper-button-prev,
+.gallery-swiper .swiper-button-next {
+  top: 38%;
+  margin-top: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: #f3efe6;
+  border-radius: 12px;
+  color: #152033;
+}
+
+.gallery-swiper .swiper-button-prev::after,
+.gallery-swiper .swiper-button-next::after {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.gallery-swiper .swiper-pagination-bullet {
+  background: #c9c2b4;
+  opacity: 1;
+}
+
+.gallery-swiper .swiper-pagination-bullet-active {
+  background: var(--color-kumkum);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-in,
+  .hero-copy > * {
+    animation: none;
+  }
+}
