@@ -23,7 +23,7 @@ export function HeroShowcase({ photos }: { photos: Photo[] }) {
   }, []);
 
   return (
-    <div className="hero-swiper-wrap mx-auto aspect-[3/4] w-full max-w-[26rem] pb-10">
+    <div className="hero-swiper-wrap mx-auto aspect-[3/4] w-full max-w-[26rem] pb-10" data-lenis-prevent>
       <Swiper
         className="hero-swiper h-full w-full"
         modules={reduce ? [Pagination] : [EffectCards, Autoplay, Pagination]}

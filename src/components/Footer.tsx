@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BrandMark } from "./BrandMark";
 import { affiliatedOffice, labels, navItems, org } from "../data/content";
 
 export function Footer() {
@@ -6,7 +7,8 @@ export function Footer() {
     <footer className="border-t border-ink/8 bg-paper-2 dark:border-white/8 dark:bg-night-2">
       <div className="mx-auto grid max-w-[1400px] gap-10 px-4 py-14 md:grid-cols-12 md:px-6">
         <div className="md:col-span-5">
-          <p className="font-latin text-[13px] font-semibold tracking-[0.14em] text-kumkum">{org.shortName}</p>
+          <BrandMark className="h-20 w-20" alt={org.nameTe} />
+          <p className="mt-4 font-latin text-[13px] font-semibold tracking-[0.14em] text-kumkum">{org.shortName}</p>
           <h2 className="mt-2 font-display text-2xl font-semibold leading-[1.25] text-ink dark:text-[#f3efe6]">
             {org.nameTe}
           </h2>

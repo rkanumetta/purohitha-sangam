@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { List, Moon, Sun, X } from "@phosphor-icons/react";
+import { BrandMark } from "./BrandMark";
 import { labels, navItems, org } from "../data/content";
 import { useTheme } from "../lib/theme";
 
@@ -17,12 +18,10 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink/8 bg-paper/90 backdrop-blur-md dark:border-white/8 dark:bg-night/90">
-      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-4 px-4 md:px-6">
+    <header className="sticky top-0 z-40 border-b border-ink/8 bg-paper dark:border-white/8 dark:bg-night">
+      <div className="mx-auto flex h-[4.5rem] max-w-[1400px] items-center justify-between gap-4 px-4 md:px-6">
         <Link to="/" className="flex min-w-0 items-center gap-3">
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-night text-[13px] font-semibold tracking-wide text-[#f3efe6] dark:bg-night-3">
-            <span className="font-latin">{org.shortName}</span>
-          </span>
+          <BrandMark className="h-12 w-12" />
           <span className="min-w-0">
             <span className="block truncate font-display text-[15px] font-semibold leading-tight text-ink dark:text-[#f3efe6]">
               {org.nameTe}

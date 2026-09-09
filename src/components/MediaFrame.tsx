@@ -11,6 +11,8 @@ export function MediaFrame({ src, alt, className = "", position = "top" }: Props
       <img
         src={src}
         alt={alt}
+        loading="lazy"
+        decoding="async"
         className={`h-full w-full object-cover ${position === "center" ? "object-center" : "object-top"}`}
       />
     </div>

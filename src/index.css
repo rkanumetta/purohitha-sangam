@@ -28,7 +28,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 html,
@@ -39,6 +39,7 @@ body,
 
 body {
   margin: 0;
+  overflow-x: clip;
   font-family: var(--font-sans);
   background: var(--color-paper);
   color: var(--color-ink);
@@ -153,10 +154,6 @@ html.dark body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   .reveal-in,
   .hero-copy > * {
     animation: none;

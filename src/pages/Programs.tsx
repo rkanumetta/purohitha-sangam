@@ -41,7 +41,7 @@ export function Programs() {
                 src={item.image}
                 alt={item.imageAlt}
                 position={item.id === "sabha" ? "center" : "top"}
-                className={item.id === "sabha" ? "aspect-[4/3]" : "aspect-[3/4]"}
+                className="aspect-[3/4] w-full"
               />
               <h3 className="mt-4 font-display text-2xl text-ink dark:text-[#f3efe6]">{item.title}</h3>
               <p className="mt-1 text-[15px] text-kumkum">{item.place}</p>

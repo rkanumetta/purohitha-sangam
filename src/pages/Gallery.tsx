@@ -17,39 +17,32 @@ export function Gallery() {
         <p className="mt-4 text-ink-soft">{labels.emptyGallery}</p>
       ) : (
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {photos.map((photo) => {
-            const landscape = photo.src.includes("committee-group");
-            return (
-              <button
-                key={photo.src}
-                type="button"
-                onClick={() => setActive(photo.src)}
-                className={`block overflow-hidden rounded-xl bg-night-3 ${
-                  landscape ? "sm:col-span-2 lg:col-span-3" : ""
-                }`}
-              >
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  className={
-                    landscape
-                      ? "aspect-[16/9] w-full object-cover object-center md:aspect-[20/9]"
-                      : "aspect-[3/4] w-full object-cover object-[center_18%]"
-                  }
-                />
-                <span className="sr-only">{photo.caption}</span>
-              </button>
-            );
-          })}
+          {photos.map((photo) => (
+            <button
+              key={photo.src}
+              type="button"
+              onClick={() => setActive(photo.src)}
+              className="block w-full overflow-hidden rounded-xl bg-night-3 text-left"
+            >
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[3/4] h-auto w-full object-cover object-[center_20%]"
+              />
+              <span className="sr-only">{photo.caption}</span>
+            </button>
+          ))}
         </div>
       )}
 
       <h2 className="mt-16 font-display text-2xl text-ink dark:text-[#f3efe6]">{labels.videos}</h2>
-      <div className="mt-6 grid gap-6 md:grid-cols-2">
+      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
         {videos.map((video) => (
           <figure key={video.src}>
             <video
-              className="aspect-video w-full rounded-xl bg-night object-contain"
+              className="aspect-video w-full rounded-xl bg-night object-cover"
               controls
               playsInline
               preload="metadata"

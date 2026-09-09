@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "@phosphor-icons/react";
+import { BrandMark } from "../components/BrandMark";
 import { HeroShowcase } from "../components/HeroShowcase";
 import { MediaFrame } from "../components/MediaFrame";
 import { PhotoCarousel } from "../components/PhotoCarousel";
@@ -18,11 +19,14 @@ export function Home() {
 
   return (
     <div>
-      <section className="mx-auto grid max-w-[1400px] items-center gap-10 overflow-x-clip px-4 py-8 md:min-h-[calc(100dvh-4rem)] md:grid-cols-[minmax(0,1.1fr)_minmax(16rem,26rem)] md:px-6 md:py-10">
+      <section className="mx-auto grid max-w-[1400px] items-center gap-10 overflow-x-clip px-4 py-8 md:min-h-[calc(100dvh-4.5rem)] md:grid-cols-[minmax(0,1.1fr)_minmax(16rem,26rem)] md:px-6 md:py-10">
         <div className="hero-copy">
-          <p className="font-latin text-[13px] font-semibold tracking-[0.16em] text-kumkum">
-            {org.shortName}
-          </p>
+          <div className="flex items-center gap-3">
+            <BrandMark className="h-14 w-14 md:h-16 md:w-16" alt={org.nameTe} />
+            <p className="font-latin text-[13px] font-semibold tracking-[0.16em] text-kumkum">
+              {org.shortName}
+            </p>
+          </div>
           <h1 className="mt-3 font-display text-3xl font-semibold leading-[1.35] text-ink md:text-4xl lg:text-5xl dark:text-[#f3efe6]">
             {org.nameTe}
           </h1>
@@ -94,14 +98,16 @@ export function Home() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
             {programs.map((item, i) => (
               <Reveal key={item.id} delay={i * 0.05}>
-                <Link to="/programs" className="block">
+                <Link to="/programs" className="flex h-full flex-col">
                   <MediaFrame
                     src={item.image}
                     alt={item.imageAlt}
                     position={item.id === "sabha" ? "center" : "top"}
-                    className={item.id === "sabha" ? "aspect-[4/3]" : "aspect-[3/4]"}
+                    className="aspect-[3/4] w-full"
                   />
-                  <p className="mt-3 font-display text-xl text-ink dark:text-[#f3efe6]">{item.title}</p>
+                  <p className="mt-3 min-h-[3.4rem] font-display text-xl leading-snug text-ink dark:text-[#f3efe6]">
+                    {item.title}
+                  </p>
                   <p className="text-[15px] text-ink-soft dark:text-[#c9c2b4]">{item.place}</p>
                 </Link>
               </Reveal>
